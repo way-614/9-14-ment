@@ -32,10 +32,11 @@
 <script>
 export default {
   data() {
+    
     return {
       form: {
-        name: "",
-        word: "",
+        name: "admin",
+        word: "123456",
       },
       login: {
         name: [
@@ -48,8 +49,7 @@ export default {
             min: 6,
             max: 15,
             message: "长度在 6 到 15 个字符",
-            trigger: "blur",
-          },
+            trigger: "blur",},
         ],
       },
     };
