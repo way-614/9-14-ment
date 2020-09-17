@@ -56,6 +56,44 @@ const admin = {
             url:`users/${id}`,
             method:'delete',
         })
+    },
+    rightslist(){
+        return request({
+            url:"rights/list",
+            method:"get",
+        })
+    },
+    rightsroles(){
+        return request({
+            url:app.roles,
+            method:"get"
+        })
+    },
+    delroles(rels,rightid){
+        return request({
+            url:`roles/${rels.id}/rights/${rightid}`,
+            method:"delete",
+        })
+    },
+    fenpeifors(){
+        return request({
+            url:"rights/tree",
+            method:"get",
+        })
+    },
+    shouqcolse(rids,id){
+        return request({
+            url:`roles/${id}/rights`,
+            method:"post",
+            data:rids
+        })
+    },
+    fenpeiuser(id,rid){
+        return request({
+            url:`users/${id}/role`,
+            method:"put",
+            data:rid
+        })
     }
 }
 

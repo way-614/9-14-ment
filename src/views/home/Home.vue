@@ -214,10 +214,14 @@ export default {
   background: #333744;
 }
 
+::-webkit-scrollbar {
+  display: none; /* Chrome Safari */
+}
 .el-main {
+  // overflow: visible;
   background-color: #F0F0F0;
   color: #333;
-  text-align: center;
+  // text-align: center;
 }
 .iconfont {
   margin-right: 10px;

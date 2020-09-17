@@ -87,7 +87,7 @@
           <template slot-scope="scope">
             <el-button type="primary" icon="el-icon-edit" size="mini" @click="showedit(scope.row.id)"></el-button>
             <el-button type="danger" icon="el-icon-delete" size="mini" @click="deluserbyid(scope.row.id)"></el-button>
-            <el-button type="success" icon="el-icon-share" size="mini"></el-button>
+            <el-button type="success" icon="el-icon-share" size="mini" @click="savebas(scope.row)"></el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -100,6 +100,35 @@
         layout="total, sizes, prev, pager, next, jumper"
         :total="total"
       ></el-pagination>
+
+
+
+
+      <el-dialog
+        title="分配角色"
+        :visible.sync="showdown"
+        width="50%"
+        @close="downclose"
+        >
+        <div>
+          <p>当前用户：{{userinfo.username}}</p>
+          <p>当前角色：{{userinfo.role_name}}</p>
+          <p>分配新角色：
+              <el-select v-model="valueids" placeholder="请选择">
+                <el-option
+                  v-for="item in rolerlist"
+                  :key="item.id"
+                  :label="item.roleName"
+                  :value="item.id">
+                </el-option>
+              </el-select>
+          </p>
+        </div>
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="showdown = false">取 消</el-button>
+          <el-button type="primary" @click="saverowinfo">确 定</el-button>
+      </span>
+      </el-dialog>
     </el-card>
   </div>
 </template>
@@ -163,13 +192,17 @@ export default {
       },
       dialogVisible:false,
       updatas:false,
+      showdown:false,
       daslist: [],
       currentPage4:{
         query: "",
         pagenum: 1,
         pagesize: 2,  
       },
-      total:0
+      total:0,
+      userinfo:{},
+      rolerlist:[],
+      valueids:""
     };
   },
   created() {
@@ -270,6 +303,35 @@ export default {
           });          
         });
     },
+    async savebas(userinfo){
+      this.userinfo = userinfo
+      let {data:res} = await this.$http.rightsroles()
+      console.log(res)
+      if(res.meta.status!==200){
+        return this.$message.error('获取角色列表信息失败')
+      }
+      this.rolerlist = res.data
+
+      this.showdown=true
+    },
+    async saverowinfo(){
+      if(!this.valueids){
+        return this.$message.error('请填写要分配的角色')
+      }
+      let {data:res} = await this.$http.fenpeiuser(this.userinfo.id,{rid:this.valueids})
+      // console.log(res)
+      if(res.meta.status!==200){
+        return this.$message.error('更新分配角色失败')
+      }
+      this.$message.success('更新角色成功')
+
+      this.save()
+      this.showdown = false
+    },
+    downclose(){
+      this.valueids = ""
+      this.userinfo = {}
+    }
   }
 };
 </script>
