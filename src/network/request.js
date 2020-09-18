@@ -94,6 +94,20 @@ const admin = {
             method:"put",
             data:rid
         })
+    },
+    categories(params){
+        return request({
+            url:app.categories,
+            method:"get",
+            params
+        })
+    },
+    categoriesdbs(data){
+        return request({
+            url:app.categories,
+            method:"post",
+            data
+        })
     }
 }
 

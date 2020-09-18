@@ -11,9 +11,12 @@ import http from "./network/request";
 import './assets/fonts/fonts/iconfont.css'
 import axios from "axios"
 
+import TreeTable from "vue-table-with-tree-grid"
+
 
 Vue.prototype.$axios = axios
 Vue.prototype.$http = http;
+Vue.component('tree-table',TreeTable);
 
 
 

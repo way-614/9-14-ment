@@ -35,6 +35,21 @@ const routes = [
         name:'Rights',
         component: () => import('../views/chirden/rights.vue')
       },
+      {
+        path:"/goods",
+        name:"Goods",
+        component: () => import('../views/chirden/goods.vue')
+      },
+      {
+        path:"/params",
+        name:"Params",
+        component: () => import('../views/chirden/params.vue')
+      },
+      {
+        path:"/categories",
+        name:"Categories",
+        component: () => import('../views/chirden/categories.vue')
+      }
     ]
   },
   {

@@ -4,4 +4,5 @@ export const app={
     users:"/users", //用户列表数据
     addusers:"/users",//添加用户信息
     roles:"/roles",//请求角色信息
+    categories:"/categories",//商品分类列表数据
 }
