@@ -189,7 +189,7 @@ export default {
           return this.$message.error('添加分类失败')
         }
 
-        this.$message.successT('添加分类成功')
+        this.$message.success('添加分类成功')
         this.getinfosdas();
 
         this.dialogVisible=false

@@ -108,6 +108,40 @@ const admin = {
             method:"post",
             data
         })
+    },
+    attrbutsbas(params,id){
+        return request({
+            url:`categories/${id}/attributes`,
+            method:"get",
+            params
+        })
+    },
+    addbutes(data,id){
+        return request({
+            url:`categories/${id}/attributes`,
+            method:"post",
+            data
+        })
+    },
+    addattrbutids(params,id,attrid){
+        return request({
+            url:`categories/${id}/attributes/${attrid}`,
+            method:"get",
+            params
+        })
+    },
+    attrbutes(data,cateid,attrid){
+        return request({
+            url:`categories/${cateid}/attributes/${attrid}`,
+            method:"put",
+            data
+        })
+    },
+    deletebtues(id,attrid){
+        return request({
+            url:`categories/${id}/attributes/${attrid}`,
+            method:"delete"
+        })
     }
 }
 
