@@ -182,6 +182,12 @@ const admin = {
             url:"/kuaidi/1106975712662",
             method:"get"
         })
+    },
+    getreports(){
+        return request({
+            url:"reports/type/1",
+            method:"get",
+        })
     }
 }
 
