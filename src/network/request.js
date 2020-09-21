@@ -169,6 +169,19 @@ const admin = {
             method:"post",
             data
         })
+    },
+    getordersbas(params){
+        return request({
+            url:"orders",
+            method:"get",
+            params
+        })
+    },
+    ceshikuaidi(){
+        return request({
+            url:"/kuaidi/1106975712662",
+            method:"get"
+        })
     }
 }
 
