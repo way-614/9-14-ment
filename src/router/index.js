@@ -41,6 +41,11 @@ const routes = [
         component: () => import('../views/chirden/goods.vue')
       },
       {
+        path:"/goods/add",
+        name:"Goodsadd",
+        component: () => import('../views/chirden/add.vue')
+      },
+      {
         path:"/params",
         name:"Params",
         component: () => import('../views/chirden/params.vue')
@@ -49,6 +54,11 @@ const routes = [
         path:"/categories",
         name:"Categories",
         component: () => import('../views/chirden/categories.vue')
+      },
+      {
+        path:"/orders",
+        name:"Orders",
+        component: () => import('../views/chirden/orders.vue')
       }
     ]
   },

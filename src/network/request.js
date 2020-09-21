@@ -142,6 +142,33 @@ const admin = {
             url:`categories/${id}/attributes/${attrid}`,
             method:"delete"
         })
+    },
+    getgoods(params){
+        return request({
+            url:"goods",
+            method:"get",
+            params
+        })
+    },
+    removebyid(id){
+        return request({
+            url:`goods/${id}`,
+            method:"delete",
+        })
+    },
+    getgories(params,id){
+        return request({
+            url:`categories/${id}/attributes`,
+            method:"get",
+            params
+        })
+    },
+    addgoodsbas(data){
+        return request({
+            url:"goods",
+            method:"post",
+            data
+        })
     }
 }
 

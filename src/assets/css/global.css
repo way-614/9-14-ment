@@ -7,3 +7,9 @@ body,
     padding: 0;
     min-width: 860px;
 }
+.el-steps{
+    margin: 15px 0px;
+}
+.el-step__title{
+    font-size: 12px;
+}
